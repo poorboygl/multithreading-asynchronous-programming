@@ -17,6 +17,7 @@ while (true)
         break;
     }
 
+    //push
     requestQueue.Enqueue(input);
 }
 
@@ -24,6 +25,7 @@ void MonitorQueue()
 {
     while (true)
     {
+        // take the first input
         if (requestQueue.Count > 0)
         {
             string? input = requestQueue.Dequeue();
@@ -38,36 +40,47 @@ void MonitorQueue()
 void ProcessBooking(string? input)
 {
     // Simulate processing time
-    Thread.Sleep(2000);
-
-    lock (ticketsLock)
+    if (Monitor.TryEnter(ticketsLock, 2000))
     {
-        if (input == "b")
+        try
         {
-            if (availableTickets > 0)
+            // Simulate processing time
+            Thread.Sleep(3000);
+
+            if (input == "b")
             {
-                availableTickets--;
-                Console.WriteLine();
-                Console.WriteLine($"Your seat is booked. {availableTickets} seats are still available.");
+                if (availableTickets > 0)
+                {
+                    availableTickets--;
+                    Console.WriteLine();
+                    Console.WriteLine($"Your seat is booked. {availableTickets} seats are still available.");
+                }
+                else
+                {
+                    Console.WriteLine($"Tickets are not available.");
+                }
             }
-            else
+            else if (input == "c")
             {
-                Console.WriteLine($"Tickets are not available.");
+                if (availableTickets < 10)
+                {
+                    availableTickets++;
+                    Console.WriteLine();
+                    Console.WriteLine($"Your booking is canceled. {availableTickets} seats are available.");
+                }
+                else
+                {
+                    Console.WriteLine($"Error. You cannot cancel a booking at this time.");
+                }
             }
         }
-        else if (input == "c")
+        finally
         {
-            if (availableTickets < 10)
-            {
-                availableTickets++;
-                Console.WriteLine();
-                Console.WriteLine($"Your booking is canceled. {availableTickets} seats are available.");
-            }
-            else
-            {
-                Console.WriteLine($"Error. You cannot cancel a booking at this time.");
-            }
+            Monitor.Exit(ticketsLock);
         }
     }
-
+    else
+    {
+        Console.WriteLine("The system is busy. Please wait.");
+    }
 }
