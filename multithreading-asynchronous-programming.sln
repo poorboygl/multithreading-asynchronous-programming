@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ch01", "ch01", "{0398D49F-E1B4-C256-ECF8-D42A01610F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "createThreads", "ch01\createThreads\createThreads.csproj", "{C643393C-9DFD-8086-9708-65BC64FE050B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webServerSim", "ch01\webServerSim\webServerSim.csproj", "{ECD0EAED-4775-98CF-F09A-9073A392A692}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C643393C-9DFD-8086-9708-65BC64FE050B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C643393C-9DFD-8086-9708-65BC64FE050B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C643393C-9DFD-8086-9708-65BC64FE050B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C643393C-9DFD-8086-9708-65BC64FE050B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD0EAED-4775-98CF-F09A-9073A392A692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD0EAED-4775-98CF-F09A-9073A392A692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD0EAED-4775-98CF-F09A-9073A392A692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD0EAED-4775-98CF-F09A-9073A392A692}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C643393C-9DFD-8086-9708-65BC64FE050B} = {0398D49F-E1B4-C256-ECF8-D42A01610F59}
+		{ECD0EAED-4775-98CF-F09A-9073A392A692} = {0398D49F-E1B4-C256-ECF8-D42A01610F59}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94375A16-3C0E-49C0-89DA-CF14C2C8B73C}
+	EndGlobalSection
+EndGlobal
