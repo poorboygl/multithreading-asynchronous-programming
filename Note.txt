@@ -1,0 +1,6 @@
+git reset head^
+git push origin +main
+
+git log --oneline --graph --decorate --all
+
+git push --verbose
