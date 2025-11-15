@@ -1,0 +1,37 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<br />
+<br />
+
+@currentTime
+
+<br />
+<br />
+<button type="button"
+        class="btn btn-primary"
+        @onclick="OnDisplayTimeClicked">
+    Display Time
+</button>
+
+@code {
+    string currentTime = string.Empty;
+
+    async void OnDisplayTimeClicked()
+    {
+        await DisplayTime();
+    }
+
+    async Task DisplayTime()
+    {
+        await Task.Delay(500);
+        currentTime = DateTime.Now.ToString();
+        StateHasChanged();
+    }
+
+}
